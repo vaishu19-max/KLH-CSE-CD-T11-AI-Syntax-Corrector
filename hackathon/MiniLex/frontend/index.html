@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniLex | Visual Lexical Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="topbar">
+        <div>
+            <h1>MiniLex</h1>
+            <p>Visual Lexical Analyzer</p>
+        </div>
+
+        <button id="themeToggle">🌙 Dark Mode</button>
+    </header>
+
+    <main class="dashboard">
+
+        <section class="panel editor-panel">
+            <div class="section-heading">
+                <h2>Source Code Editor</h2>
+                <button id="analyzeBtn">Analyze Code</button>
+            </div>
+
+            <textarea id="codeInput" spellcheck="false"
+                placeholder="Write or paste your source code here..."></textarea>
+
+            <div id="errorMessage"></div>
+        </section>
+
+        <section class="panel">
+            <h2>Token Analytics</h2>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Tokens</h3>
+                    <p id="totalTokens">0</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Total Errors</h3>
+                    <p id="totalErrors">0</p>
+                </div>
+            </div>
+
+            <div id="tokenChart" class="chart-area">
+                Analyze code to view token statistics.
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Advanced Token Explorer</h2>
+
+            <div class="filter-controls">
+                <input type="text" id="searchToken"
+                    placeholder="Search tokens or lexemes...">
+
+                <select id="tokenFilter">
+                    <option value="ALL">All Token Types</option>
+                    <option value="KEYWORD">Keyword</option>
+                    <option value="IDENTIFIER">Identifier</option>
+                    <option value="NUMBER">Number</option>
+                    <option value="STRING">String</option>
+                    <option value="CHARACTER">Character</option>
+                    <option value="OPERATOR">Operator</option>
+                    <option value="DELIMITER">Delimiter</option>
+                </select>
+
+                <button id="downloadCSV">Download CSV</button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Token Type</th>
+                            <th>Lexeme</th>
+                            <th>Line</th>
+                            <th>Column</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tokenTableBody">
+                        <tr>
+                            <td colspan="4">No tokens available.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Lexical Errors</h2>
+            <div id="errorList">No errors detected.</div>
+        </section>
+
+        <section class="panel">
+            <h2>NFA and DFA Visualization</h2>
+
+            <div class="automata-controls">
+                <button id="showNFA">Show NFA</button>
+                <button id="showDFA">Show DFA</button>
+            </div>
+
+            <div id="automataDisplay">
+                Click a button to view the automata.
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Step-by-Step Token Recognition</h2>
+
+            <input type="text" id="recognitionInput"
+                placeholder="Enter a lexeme, e.g. variable1">
+
+            <button id="recognizeBtn">Recognize Token</button>
+
+            <div id="recognitionResult">
+                Recognition steps will appear here.
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>MiniLex – Visual Lexical Analyzer</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
